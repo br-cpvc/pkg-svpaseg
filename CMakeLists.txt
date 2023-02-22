@@ -47,6 +47,7 @@ set(gamixture_SRC
     ${SVPASEG_DIR}/src/atlasspec.c
     ${SVPASEG_DIR}/src/gamixture.c
     ${SVPASEG_DIR}/src/gamixturemain.c
+    ${SVPASEG_DIR}/src/RFRandom.c
 )
 
 set(gamixture_HEADERS
@@ -55,6 +56,7 @@ set(gamixture_HEADERS
     ${SVPASEG_DIR}/src/analyze.h
     ${SVPASEG_DIR}/src/nhmrf.h
     ${SVPASEG_DIR}/src/atlasspec.h
+    ${SVPASEG_DIR}/src/RFRandom.h
 )
 
 set_source_files_properties(${gamixture_SRC} PROPERTIES LANGUAGE CXX)

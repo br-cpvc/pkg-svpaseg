@@ -14,6 +14,8 @@ cwd=${script_dir}/..
 cd $cwd
 sh ${script_dir}/compile.sh
 
+cp svpaseg-pve-tweaked.txt $debdir/usr/share/svpaseg/atlasspecs/
+
 version="2.1"
 
 package="svpaseg"
