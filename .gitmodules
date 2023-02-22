@@ -1,0 +1,3 @@
+[submodule "deps/SVPASEG"]
+	path = deps/SVPASEG
+	url = ../SVPASEG.git
