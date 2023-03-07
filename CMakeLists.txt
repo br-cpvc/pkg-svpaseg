@@ -18,7 +18,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
 endif(OPENMP_FOUND)
 
-set(SVPASEG_DIR "deps/SVPASEG")
+set(SVPASEG_DIR "${PROJECT_SOURCE_DIR}/deps/SVPASEG")
 
 set(svpaseg_SRC
     ${SVPASEG_DIR}/src/analyze.c
@@ -47,8 +47,10 @@ set(gamixture_SRC
     ${SVPASEG_DIR}/src/atlasspec.c
     ${SVPASEG_DIR}/src/gamixture.c
     ${SVPASEG_DIR}/src/gamixturemain.c
-    ${SVPASEG_DIR}/src/RFRandom.c
 )
+if(EXISTS ${SVPASEG_DIR}/src/RFRandom.c)
+    list(APPEND gamixture_SRC ${SVPASEG_DIR}/src/RFRandom.c)
+endif(EXISTS ${SVPASEG_DIR}/src/RFRandom.c)
 
 set(gamixture_HEADERS
     ${SVPASEG_DIR}/src/gamixture.h
@@ -56,8 +58,10 @@ set(gamixture_HEADERS
     ${SVPASEG_DIR}/src/analyze.h
     ${SVPASEG_DIR}/src/nhmrf.h
     ${SVPASEG_DIR}/src/atlasspec.h
-    ${SVPASEG_DIR}/src/RFRandom.h
 )
+if(EXISTS ${SVPASEG_DIR}/src/RFRandom.h)
+    list(APPEND gamixture_HEADERS ${SVPASEG_DIR}/src/RFRandom.h)
+endif(EXISTS ${SVPASEG_DIR}/src/RFRandom.h)
 
 set_source_files_properties(${gamixture_SRC} PROPERTIES LANGUAGE CXX)
 add_executable(gamixture ${gamixture_SRC} ${gamixture_HEADERS})
