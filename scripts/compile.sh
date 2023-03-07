@@ -12,6 +12,7 @@ cmake ../.. \
 -DCMAKE_INSTALL_PREFIX=../debian/usr \
 -DCMAKE_BUILD_TYPE=Release \
 -DCMAKE_INSTALL_RPATH_USE_LINK_PATH=TRUE \
+-DCMAKE_CXX_FLAGS="-Wno-write-strings" \
 -DCMAKE_EXE_LINKER_FLAGS="-static"
 
 n=`nproc --ignore=1`
